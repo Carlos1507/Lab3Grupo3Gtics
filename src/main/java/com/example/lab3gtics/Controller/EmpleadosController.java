@@ -28,7 +28,7 @@ public class EmpleadosController {
     @GetMapping(value = "")
     public String index(Model model){
         model.addAttribute("listaempleados", employeesRepository.findAll());
-        return "empleados/principal";
+        return "principal";
     }
 
     @PostMapping(value = "busqueda")
@@ -36,7 +36,7 @@ public class EmpleadosController {
                          Model model){
         List<EmpleadoLista> lista= employeesRepository.buscarEmpleados(buscar);
         model.addAttribute("listaEmpleados", lista);
-        return "empleados/principal";
+        return "principal";
     }
 
     @GetMapping(value = "usuario/nuevo")
