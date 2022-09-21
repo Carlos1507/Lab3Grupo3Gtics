@@ -1,5 +1,7 @@
 package com.example.lab3gtics.Controller;
 
+import com.example.lab3gtics.Entity.JobHistory;
+import com.example.lab3gtics.Repository.HistorialRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,12 +14,12 @@ import java.util.List;
 public class HistorialController {
 
     @Autowired
-     ;
+    HistorialRepository historialRepository;
 
     @GetMapping(value = {"/list", ""})
     public String listarTransportistas(Model model) {
 
-        List<> lista = .findAll();
+        List<JobHistory> lista = historialRepository.findAll();
         model.addAttribute("shipperList", lista);
 
         return "/list";
