@@ -22,7 +22,7 @@ public class HistorialController {
         List<JobHistory> lista = historialRepository.findAll();
         model.addAttribute("historial_list", lista);
 
-        return "/lista_historial";
+        return "lista_historial";
     }
 
 
