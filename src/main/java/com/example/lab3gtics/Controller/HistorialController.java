@@ -20,10 +20,12 @@ public class HistorialController {
     public String listarTransportistas(Model model) {
 
         List<JobHistory> lista = historialRepository.findAll();
-        model.addAttribute("shipperList", lista);
+        model.addAttribute("historial_list", lista);
 
-        return "/list";
+        return "/lista_historial";
     }
+
+
 
 
 }
