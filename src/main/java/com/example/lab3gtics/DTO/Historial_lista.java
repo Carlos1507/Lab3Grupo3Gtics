@@ -7,7 +7,6 @@ public interface Historial_lista {
     String getPuesto();
     String getDepartamento();
     String getJefe();
-
     Date getFechaInicio();
     Date getFechaFinal();
 }
