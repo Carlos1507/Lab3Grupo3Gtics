@@ -50,8 +50,8 @@ public class EmpleadosController {
     }
 
     @PostMapping(value = "usuario/guardar")
-    public String guardarUsuario(){
-
+    public String guardarUsuario(Employee employee){
+        employeesRepository.save(employee);
         return "redirect:/";
     }
 
