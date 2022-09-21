@@ -30,19 +30,19 @@
               <th>Puesto </th>
               <th>Departamento</th>
               <th>Jefe</th>
-              <th>Fecha Incio (Dia-Mes-Año)</th>
+              <th>Fecha Inicio (Dia-Mes-Año)</th>
               <th>Fecha Fin (Dia-Mes-Año)</th>
 
             </tr>
           </thead>
           <tbody>
-            <tr th:each="hist, info : ${historial_list}">
-              <td th:text="${hist.ge}"></td>
-              <td th:text="${}"></td>
-              <td th:text="${}"></td>
-              <td th:text="${}"></td>
-              <td th:text="${}"></td>
-              <td th:text="${}"></td>
+            <tr th:each="hist, info : ${lista_historial}">
+              <td th:text="${hist.getNombre()+hist.getApellido()}"></td>
+              <td th:text="${hist.getPuesto()}"></td>
+              <td th:text="${hist.getDepartamento()}"></td>
+              <td th:text="${hist.getJefe()}"></td>
+              <td th:text="${hist.getFechaInicio()}"></td>
+              <td th:text="${hist.getFechaFinal()}"></td>
             </tr>
           </tbody>
         </table>
