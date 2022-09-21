@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/general :: cabecera(titulo='Empleados - TravelTripo')">
+</head>
+<body>
+  <nav th:replace="fragments/navbar :: navBar"></nav>
+  <main>
+    <div class="container px-4 py-5">
+      <h1 class="pb-2 border-bottom">Empleados totales</h1>
+      <div class="d-flex mt-3 mb-4">
+        <a class="btn btn-primary" th:href="">Nuevo Empleado</a>
+        <a class="btn btn-secondary ms-auto" th:href="@{}">Regresar</a>
+      </div>
+      <form method="post" th:action="">
+        <input name="searchField" class="form-control mb-3" type="text" placeholder="Search"/>
+        <button > </button>
+      </form>
+      <table class="table">
+        <tr>
+          <th>#</th>
+          <th>Nombre de la compañia</th>
+          <th>Teléfono</th>
+          <th></th>
+          <th></th>
+        </tr>
+        <tr th:each="">
+          <td th:text=""></td>
+          <td th:text=""></td>
+          <td th:text=""></td>
+          <td><a class="btn btn-primary" th:href="">Editar</a>
+          </td>
+          <td><a class="btn btn-danger" th:href="">Borrar</a>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </main>
+</body>
+</html>
