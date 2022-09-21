@@ -18,50 +18,51 @@
 <body class="container-fluid mt-4">
 <h2 class="text-center mb-4">Edición de Empleados</h2>
 
-<form method="post" th:action="@{ }">
+<form method="post" th:action="@{/usuario/guardar}">
   <h3 class="pb-2 border-bottom">Ingrese los datos donde corresponde</h3>
-  <form th:object="${ }">
+  <form th:object="${usuario}">
     <div class="mb-3">
       <label class="form-label">Nombre</label>
-      <input class="form-control" th:field="*{}">
+      <input class="form-control" th:field="*{firstName}">
     </div>
     <div class="mb-3">
       <label class="form-label">Apellido</label>
-      <input class="form-control" th:field="*{}">
+      <input class="form-control" th:field="*{lastName}">
     </div>
     <div class="mb-3">
       <label class="form-label">Email</label>
-      <input class="form-control" th:field="*{}">
+      <input class="form-control" th:field="*{email}">
     </div>
     <div class="mb-3">
       <label class="form-label">Contraseña</label>
-      <input class="form-control" th:field="*{}">
+      <input class="form-control" th:field="*{password}">
     </div>
     <div class="mb-3">
       <div class="form-floating">
-        <select class="form-select">
-          <option th:each="currency : ${}" th:value="${}" th:text="${}">Listado de Puestos</option>
-        </select>
         <label>Puesto</label>
+        <select class="form-select">
+          <option th:each="puesto : ${listapuestos}" th:value="${puesto.jobId}" th:text="${puesto.jobTitle}">Listado de Puestos</option>
+        </select>
       </div>
     </div>
     <div class="mb-3">
       <label class="form-label">Sueldo</label>
-      <input class="form-control" th:value="${ }">
+      <input class="form-control" th:field="*{salary}">
     </div>
     <div class="mb-3">
       <div class="form-floating">
-        <select class="form-select">
-          <option th:each="currency : ${}" th:value="${}" th:text="${}">Liatado de JEFES</option>
-        </select>
         <label>Jefe</label>
+        <select class="form-select">
+          <option th:each="jefe : ${listajefes}" th:value="${jefe.employeeId}" th:text="${jefe.firstName}+${jefe.lastName}">Listado de JEFES</option>
+        </select>
+
       </div>
     </div>
     <div class="mb-3">
       <label class="form-label">Departamento</label>
-      <input class="form-control" th:value="${ }">
+      <input class="form-control" th:field="*{department}">
     </div>
-    <a th:href="@{}" class="btn btn-danger">Cancelar</a>
+    <a th:href="@{/}" class="btn btn-danger">Cancelar</a>
     <button type="submit" class="btn btn-primary">Guardar</button>
   </form>
 </form>

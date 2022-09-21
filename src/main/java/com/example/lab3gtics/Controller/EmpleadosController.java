@@ -1,7 +1,10 @@
 package com.example.lab3gtics.Controller;
 
+import com.example.lab3gtics.Entity.Employee;
+import com.example.lab3gtics.Entity.Job;
 import com.example.lab3gtics.DTO.EmpleadoLista;
 import com.example.lab3gtics.Repository.EmployeesRepository;
+import com.example.lab3gtics.Repository.JobRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.Banner;
@@ -19,6 +22,8 @@ import java.util.List;
 public class EmpleadosController {
     @Autowired
     EmployeesRepository employeesRepository;
+    @Autowired
+    JobRepository jobRepository;
 
     @GetMapping(value = "")
     public String index(Model model){
@@ -34,10 +39,20 @@ public class EmpleadosController {
         return "empleados/principal";
     }
 
-    @GetMapping(value = "nuevo")
-    public String nuevoUsuario(){
-
+    @GetMapping(value = "usuario/nuevo")
+    public String nuevoUsuario(Model model){
+        Employee employee = new Employee();
+        List<Job> puestos = jobRepository.findAll();
+        model.addAttribute("listapuestos", puestos);
+        model.addAttribute("usuario", employee);
+        model.addAttribute("listajefes",employeesRepository.findAll());
         return "nuevoUsuario";
+    }
+
+    @PostMapping(value = "usuario/guardar")
+    public String guardarUsuario(){
+
+        return "redirect:/";
     }
 
 }
