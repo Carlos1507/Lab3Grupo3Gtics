@@ -12,15 +12,15 @@ import java.util.List;
 public class HistorialController {
 
     @Autowired
-    ShipperRepository shipperRepository;
+     ;
 
     @GetMapping(value = {"/list", ""})
     public String listarTransportistas(Model model) {
 
-        List<Shipper> lista = shipperRepository.findAll();
+        List<> lista = .findAll();
         model.addAttribute("shipperList", lista);
 
-        return "shipper/list";
+        return "/list";
     }
 
 
