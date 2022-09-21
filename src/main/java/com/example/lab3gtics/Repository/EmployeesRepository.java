@@ -17,4 +17,13 @@ public interface EmployeesRepository extends JpaRepository<Employee,Integer> {
             "where (e.first_name like %?1% or e.last_name like %?1% or " +
             "       j.job_title like %?1% or d.department_name like %?1% or l.city like %?1%)")
     List<EmpleadoLista> buscarEmpleados(String filtro);
+    /*
+    public interface EmployeesRepository extends JpaRepository<Employee,Integer> {
+
+    SELECT  CONCAT(e.first_name," ",e.last_name) as 'Empleado', j.max_salary as 'Salario Máximo', j.min_salary as 'Salario Mínimo' ,e.salary as 'Salario Actual', 1.08*(e.salary) as  'Nuevo Salario'  FROM  employees e
+inner join jobs j on (e.job_id = j.job_id) where e.salary < 1.05 * (j.min_salary) order by e.salary desc;
+
+    List<EmpleadoLista> buscarEmpleados(String filtro);
+     */
+
 }
