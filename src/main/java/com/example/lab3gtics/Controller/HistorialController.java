@@ -16,11 +16,11 @@ public class HistorialController {
     @Autowired
     HistorialRepository historialRepository;
 
-    @GetMapping(value = {"/list", ""})
-    public String listarTransportistas(Model model) {
+    @GetMapping(value = {"/list"})
+    public String listaHistorial(Model model) {
 
-        List<JobHistory> lista = historialRepository.findAll();
-        model.addAttribute("historial_list", lista);
+
+        model.addAttribute("lista_historial", historialRepository.obtenerHistorial());
 
         return "lista_historial";
     }
